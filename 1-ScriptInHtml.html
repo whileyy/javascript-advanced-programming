@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 行内式Script -->
+    <script>
+        console.log("ScriptInHtml");
+    </script>
+    <!-- charset 使用 src 属性指定的代码字符集 -->
+    <script charset="UTF-8"></script>
+    <!-- defer 表示脚本可以延迟到文档完全被解析和显示之后再执行 本属性不应在缺少 src 属性的情况下使用（也就是内联脚本的情况下），这种情况下将不会生效。 -->
+    <script defer src="./rubbish/x.js">
+    </script>
+    <!-- async 表示应该立即开始下载脚本，但不能阻止其他页面动作，比如下载资源或等待其他脚本加载 -->
+    <!-- crossorigin 配置相关请求的CORS（跨源资源共享）设置。默认不使用CORS。 设置凭据：use-credentials 不设置凭据：anonymous-->
+    <script async crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js">
+    </script>
+    <!-- 本地导入JS文件,Script标签带有src属性时，标签中的JS代码并不会去执行了 -->
+    <script src="./rubbish/xxx.js">
+        console.log("不会输出的内容");
+    </script>
+    <!-- https://developer.mozilla.org/zh-CN/docs/Web/Security/Subresource_Integrity -->
+    <script integrity>
+    </script>
+    <!--
+    type 代替已经废弃的language属性，表示代码块中脚本语言的类型（也称MIME类型）。
+    如果值为module，则代码会被当成ES6模块，而且只有这个时候才能使用 import 和 export。
+    按照惯例，这个值始终都是"text/javascript"
+    JavaScript 文件的 MIME 类型通常是"application/x-javascript"，不过给type 属性这个值有可能导致脚本被忽略。在非 IE 的浏览器中有效的其他值还有
+    "application/javascript"和"application/ecmascript"。
+-->
+    <script type="module">
+
+    </script>
+    <!-- 动态添加脚本 -->
+    <script>
+        let script = document.createElement("script")
+        script.src = "https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js"
+        // 动态加载脚本的情况async默认是ture，但是因为不是所有浏览器都支持async属性所以我们将他改为false，以免出现不必要的问题
+        script.async = false
+        document.body.appendChild(script)
+        // 以这种方式获取的资源对浏览器预加载器是不可见的。这会严重影响它们在资源获取队列中的优先级。
+        // 根据应用程序的工作方式以及怎么使用，这种方式可能会严重影响性能。要想让预加载器知道这些动态请求文件的存在，可以在文档头部显式声明它们：
+        // <link rel="preload" href="gibberish.js"> 
+    </script>
+</body>
+
+</html>
