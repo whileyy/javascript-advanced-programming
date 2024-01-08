@@ -51,6 +51,14 @@
         // 根据应用程序的工作方式以及怎么使用，这种方式可能会严重影响性能。要想让预加载器知道这些动态请求文件的存在，可以在文档头部显式声明它们：
         // <link rel="preload" href="gibberish.js"> 
     </script>
+
+    <noscript>
+        "当前已禁止使用JavaScript"
+    </noscript>
+    <!--<noscript>元素可以包含任何可以出现在<body>中的 HTML 元素，<script>除外。在下列两种情况下，浏览器将显示包含在<noscript>中的内容：
+             浏览器不支持脚本；
+             浏览器对脚本的支持被关闭。
+        任何一个条件被满足，包含在<noscript>中的内容就会被渲染。否则，浏览器不会渲染<noscript>中的内容 -->
 </body>
 
 </html>
