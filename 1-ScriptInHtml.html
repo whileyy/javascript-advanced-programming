@@ -14,22 +14,28 @@
     <script>
         console.log("ScriptInHtml");
     </script>
+
     <!-- charset 使用 src 属性指定的代码字符集 -->
     <script charset="UTF-8"></script>
+
     <!-- defer 表示脚本可以延迟到文档完全被解析和显示之后再执行 本属性不应在缺少 src 属性的情况下使用（也就是内联脚本的情况下），这种情况下将不会生效。 -->
     <script defer src="./rubbish/x.js">
+
     </script>
     <!-- async 表示应该立即开始下载脚本，但不能阻止其他页面动作，比如下载资源或等待其他脚本加载 -->
     <!-- crossorigin 配置相关请求的CORS（跨源资源共享）设置。默认不使用CORS。 设置凭据：use-credentials 不设置凭据：anonymous-->
     <script async crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js">
     </script>
+
     <!-- 本地导入JS文件,Script标签带有src属性时，标签中的JS代码并不会去执行了 -->
     <script src="./rubbish/xxx.js">
         console.log("不会输出的内容");
     </script>
+
     <!-- https://developer.mozilla.org/zh-CN/docs/Web/Security/Subresource_Integrity -->
     <script integrity>
     </script>
+
     <!--
     type 代替已经废弃的language属性，表示代码块中脚本语言的类型（也称MIME类型）。
     如果值为module，则代码会被当成ES6模块，而且只有这个时候才能使用 import 和 export。
@@ -40,6 +46,7 @@
     <script type="module">
 
     </script>
+
     <!-- 动态添加脚本 -->
     <script>
         let script = document.createElement("script")
